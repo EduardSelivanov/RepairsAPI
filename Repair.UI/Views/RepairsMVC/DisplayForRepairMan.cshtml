@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Repair.UI.Models.DTOsMVC.RepairDTO.RepairsForRepairmanDTOMVC>
+
+
+<table class="table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>IdOfClient</th>
+            <th>Name</th>
+            <th>Repair desc</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var rep in Model)
+        {
+            <tr>
+                <td>@rep.Id</td>
+                <td>@rep.IssuedById</td>
+                <td>@rep.RepairName</td>
+                <td>@rep.DescriptionRepair</td>
+                <td> <a class="btn" asp-controller="RepairsMVC"
+                   asp-action="ShowIssueByRepairMan" asp-route-issueId=@rep.Id>
+                    Edit
+                </a></td>
+            </tr>
+        }
+    </tbody>
+</table>
